@@ -10,7 +10,7 @@ class State:
         self.game: Game = game
         self.prev_state = None
 
-    def update(self):
+    def update(self, dt, actions):
         pass
 
     def render(self, display: pygame.Surface):

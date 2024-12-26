@@ -1,5 +1,6 @@
 import pygame
-from state import State
+from states.state import State
+from states.play import Play
 
 
 class Title(State):
@@ -7,10 +8,10 @@ class Title(State):
         super().__init__(game)
 
     def update(self, delta_time, actions):
-        print(self.game.state_stack, self.prev_state)
         if actions["enter"]:
             # Insert new state
-            pass
+            play_state = Play(self.game)
+            play_state.enter_state()
         self.game.reset_keys()
 
     def render(self, display: pygame.Surface):

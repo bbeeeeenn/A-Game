@@ -44,7 +44,11 @@ class Game:
 
     def handle_events(self):
         for event in pygame.event.get():
-            if event.type == pygame.QUIT:
+            if (
+                event.type == pygame.QUIT
+                or event.type == pygame.KEYDOWN
+                and event.key == pygame.K_ESCAPE
+            ):
                 self.quit_game()
 
             if event.type == pygame.KEYDOWN:
@@ -58,6 +62,8 @@ class Game:
                     self.actions["down"] = True
                 if event.key == pygame.K_RETURN:
                     self.actions["enter"] = True
+                if event.key == pygame.K_BACKSPACE:
+                    self.actions["back"] = True
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_a:
                     self.actions["left"] = False
@@ -69,8 +75,11 @@ class Game:
                     self.actions["down"] = False
                 if event.key == pygame.K_RETURN:
                     self.actions["enter"] = False
+                if event.key == pygame.K_BACKSPACE:
+                    self.actions["back"] = False
 
     def update(self):
+        print(self.state_stack)
         self.state_stack[-1].update(self.delta_time, self.actions)
 
     def render(self):
