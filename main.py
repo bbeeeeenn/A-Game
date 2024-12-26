@@ -7,5 +7,5 @@ if __name__ == "__main__":
         "FPS": 60,
     }
     game: Game = Game(configs)
-    if game.running:
+    while game.running:
         game.game_loop()
