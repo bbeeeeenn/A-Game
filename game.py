@@ -79,7 +79,6 @@ class Game:
                     self.actions["back"] = False
 
     def update(self):
-        print(self.state_stack)
         self.state_stack[-1].update(self.delta_time, self.actions)
 
     def render(self):
