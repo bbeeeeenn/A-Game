@@ -93,3 +93,16 @@ class Game:
         self.running = False
         pygame.quit()
         sys.exit()
+
+    def write_text(
+        self,
+        text: str,
+        font_size: int,
+        pos: tuple[int, int],
+        color: tuple[int, int, int],
+    ) -> tuple[pygame.Surface, pygame.Rect]:
+        font = pygame.font.Font("assets/fonts/Steelar.otf", font_size)
+        text_surf = font.render(text, True, color)
+        text_rect = text_surf.get_rect()
+        text_rect.center = pos
+        return text_surf, text_rect
