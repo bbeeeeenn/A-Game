@@ -7,8 +7,8 @@ class Title(State):
     def __init__(self, game):
         super().__init__(game)
         self.title = self.game.write_text(
-            "Stellar",
-            64,
+            "Stellar Impact",
+            42,
             (self.game.WIDTH // 2, self.game.HEIGHT // 2),
             (255, 255, 255),
         )
